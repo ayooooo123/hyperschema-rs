@@ -1,0 +1,2026 @@
+{
+ "source": "hyperbee2@2.21.1",
+ "version": 2,
+ "cases": [
+  {
+   "name": "@bee/tree-pointer-0",
+   "version": 1,
+   "hex": "ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "core": 4294967296,
+    "seq": 4294967296,
+    "offset": 4294967296
+   }
+  },
+  {
+   "name": "@bee/tree-pointer-0",
+   "version": 1,
+   "hex": "fd0010fcfe56341200",
+   "value": {
+    "core": 4096,
+    "seq": 252,
+    "offset": 1193046
+   }
+  },
+  {
+   "name": "@bee/tree-pointer-0",
+   "version": 2,
+   "hex": "ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "core": 4294967296,
+    "seq": 4294967296,
+    "offset": 4294967296
+   }
+  },
+  {
+   "name": "@bee/tree-pointer-0",
+   "version": 2,
+   "hex": "fd0010fdfd00fd0010",
+   "value": {
+    "core": 4096,
+    "seq": 253,
+    "offset": 4096
+   }
+  },
+  {
+   "name": "@bee/tree-pointer-0",
+   "version": 2,
+   "hex": "fd0010fdfd00fd0010",
+   "value": {
+    "core": 4096,
+    "seq": 253,
+    "offset": 4096
+   }
+  },
+  {
+   "name": "@bee/tree-pointer",
+   "version": 1,
+   "hex": "07ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "core": 4294967296,
+    "seq": 4294967296,
+    "offset": 4294967296
+   }
+  },
+  {
+   "name": "@bee/tree-pointer",
+   "version": 1,
+   "hex": "00",
+   "value": {
+    "core": 0,
+    "seq": 0,
+    "offset": 0
+   }
+  },
+  {
+   "name": "@bee/tree-pointer",
+   "version": 2,
+   "hex": "07ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "core": 4294967296,
+    "seq": 4294967296,
+    "offset": 4294967296
+   }
+  },
+  {
+   "name": "@bee/tree-pointer",
+   "version": 2,
+   "hex": "00",
+   "value": {
+    "core": 0,
+    "seq": 0,
+    "offset": 0
+   }
+  },
+  {
+   "name": "@bee/tree-pointer",
+   "version": 2,
+   "hex": "05fd0010fe56341200",
+   "value": {
+    "core": 4096,
+    "seq": 0,
+    "offset": 1193046
+   }
+  },
+  {
+   "name": "@bee/tree-delta",
+   "version": 1,
+   "hex": "ffffff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "type": 7,
+    "index": 255,
+    "pointer": {
+     "core": 4294967296,
+     "seq": 4294967296,
+     "offset": 4294967296
+    }
+   }
+  },
+  {
+   "name": "@bee/tree-delta",
+   "version": 1,
+   "hex": "00",
+   "value": {
+    "type": 0,
+    "index": 0,
+    "pointer": null
+   }
+  },
+  {
+   "name": "@bee/tree-delta",
+   "version": 2,
+   "hex": "ffffff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "type": 7,
+    "index": 255,
+    "pointer": {
+     "core": 4294967296,
+     "seq": 4294967296,
+     "offset": 4294967296
+    }
+   }
+  },
+  {
+   "name": "@bee/tree-delta",
+   "version": 2,
+   "hex": "05",
+   "value": {
+    "type": 5,
+    "index": 0,
+    "pointer": null
+   }
+  },
+  {
+   "name": "@bee/tree-delta",
+   "version": 2,
+   "hex": "95fd0010",
+   "value": {
+    "type": 5,
+    "index": 0,
+    "pointer": {
+     "core": 0,
+     "seq": 0,
+     "offset": 4096
+    }
+   }
+  },
+  {
+   "name": "@bee/cohort",
+   "version": 2,
+   "hex": "03ffffff0000000001000000ff0000000001000000ff0000000001000000ffffff0000000001000000ff0000000001000000ff0000000001000000ffffff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": [
+    {
+     "type": 7,
+     "index": 255,
+     "pointer": {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     }
+    },
+    {
+     "type": 7,
+     "index": 255,
+     "pointer": {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     }
+    },
+    {
+     "type": 7,
+     "index": 255,
+     "pointer": {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     }
+    }
+   ]
+  },
+  {
+   "name": "@bee/cohort",
+   "version": 2,
+   "hex": "00",
+   "value": []
+  },
+  {
+   "name": "@bee/cohort",
+   "version": 2,
+   "hex": "01b6fe56341200fdfd00",
+   "value": [
+    {
+     "type": 6,
+     "index": 0,
+     "pointer": {
+      "core": 1193046,
+      "seq": 0,
+      "offset": 253
+     }
+    }
+   ]
+  },
+  {
+   "name": "@bee/value-pointer",
+   "version": 1,
+   "hex": "0fff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "core": 4294967296,
+    "seq": 4294967296,
+    "offset": 4294967296,
+    "split": 4294967296
+   }
+  },
+  {
+   "name": "@bee/value-pointer",
+   "version": 1,
+   "hex": "00",
+   "value": {
+    "core": 0,
+    "seq": 0,
+    "offset": 0,
+    "split": 0
+   }
+  },
+  {
+   "name": "@bee/value-pointer",
+   "version": 2,
+   "hex": "0fff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "core": 4294967296,
+    "seq": 4294967296,
+    "offset": 4294967296,
+    "split": 4294967296
+   }
+  },
+  {
+   "name": "@bee/value-pointer",
+   "version": 2,
+   "hex": "00",
+   "value": {
+    "core": 0,
+    "seq": 0,
+    "offset": 0,
+    "split": 0
+   }
+  },
+  {
+   "name": "@bee/value-pointer",
+   "version": 2,
+   "hex": "04fdfd00",
+   "value": {
+    "core": 0,
+    "seq": 0,
+    "offset": 253,
+    "split": 0
+   }
+  },
+  {
+   "name": "@bee/block-pointer",
+   "version": 1,
+   "hex": "ff0000000001000000ff0000000001000000",
+   "value": {
+    "core": 4294967296,
+    "seq": 4294967296
+   }
+  },
+  {
+   "name": "@bee/block-pointer",
+   "version": 1,
+   "hex": "0100",
+   "value": {
+    "core": 1,
+    "seq": 0
+   }
+  },
+  {
+   "name": "@bee/block-pointer",
+   "version": 2,
+   "hex": "ff0000000001000000ff0000000001000000",
+   "value": {
+    "core": 4294967296,
+    "seq": 4294967296
+   }
+  },
+  {
+   "name": "@bee/block-pointer",
+   "version": 2,
+   "hex": "fe5634120000",
+   "value": {
+    "core": 1193046,
+    "seq": 0
+   }
+  },
+  {
+   "name": "@bee/block-pointer",
+   "version": 2,
+   "hex": "fe5634120000",
+   "value": {
+    "core": 1193046,
+    "seq": 0
+   }
+  },
+  {
+   "name": "@bee/batch-pointer",
+   "version": 1,
+   "hex": "ff0000000001000000ff0000000001000000",
+   "value": {
+    "start": 4294967296,
+    "end": 4294967296
+   }
+  },
+  {
+   "name": "@bee/batch-pointer",
+   "version": 1,
+   "hex": "0100",
+   "value": {
+    "start": 1,
+    "end": 0
+   }
+  },
+  {
+   "name": "@bee/batch-pointer",
+   "version": 2,
+   "hex": "ff0000000001000000ff0000000001000000",
+   "value": {
+    "start": 4294967296,
+    "end": 4294967296
+   }
+  },
+  {
+   "name": "@bee/batch-pointer",
+   "version": 2,
+   "hex": "fc01",
+   "value": {
+    "start": 252,
+    "end": 1
+   }
+  },
+  {
+   "name": "@bee/batch-pointer",
+   "version": 2,
+   "hex": "fc01",
+   "value": {
+    "start": 252,
+    "end": 1
+   }
+  },
+  {
+   "name": "@bee/tree-0",
+   "version": 1,
+   "hex": "03ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "keys": [
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     },
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     },
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     }
+    ],
+    "children": [
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     },
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     },
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     }
+    ]
+   }
+  },
+  {
+   "name": "@bee/tree-0",
+   "version": 1,
+   "hex": "0000",
+   "value": {
+    "keys": [],
+    "children": []
+   }
+  },
+  {
+   "name": "@bee/tree-0",
+   "version": 2,
+   "hex": "03ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "keys": [
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     },
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     },
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     }
+    ],
+    "children": [
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     },
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     },
+     {
+      "core": 4294967296,
+      "seq": 4294967296,
+      "offset": 4294967296
+     }
+    ]
+   }
+  },
+  {
+   "name": "@bee/tree-0",
+   "version": 2,
+   "hex": "0000",
+   "value": {
+    "keys": [],
+    "children": []
+   }
+  },
+  {
+   "name": "@bee/tree-0",
+   "version": 2,
+   "hex": "01fdfd00fd0010fc01fdfd00fe56341200fc",
+   "value": {
+    "keys": [
+     {
+      "core": 253,
+      "seq": 4096,
+      "offset": 252
+     }
+    ],
+    "children": [
+     {
+      "core": 253,
+      "seq": 1193046,
+      "offset": 252
+     }
+    ]
+   }
+  },
+  {
+   "name": "@bee/tree",
+   "version": 1,
+   "hex": "031fff1fff1fff031fff1fff1fff",
+   "value": {
+    "keys": [
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     },
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     },
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     }
+    ],
+    "children": [
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     },
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     },
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "@bee/tree",
+   "version": 1,
+   "hex": "0000",
+   "value": {
+    "keys": [],
+    "children": []
+   }
+  },
+  {
+   "name": "@bee/tree",
+   "version": 2,
+   "hex": "031fff1fff1fff031fff1fff1fff",
+   "value": {
+    "keys": [
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     },
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     },
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     }
+    ],
+    "children": [
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     },
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     },
+     {
+      "type": 7,
+      "index": 255,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "@bee/tree",
+   "version": 2,
+   "hex": "0000",
+   "value": {
+    "keys": [],
+    "children": []
+   }
+  },
+  {
+   "name": "@bee/tree",
+   "version": 2,
+   "hex": "01160114",
+   "value": {
+    "keys": [
+     {
+      "type": 6,
+      "index": 0,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     }
+    ],
+    "children": [
+     {
+      "type": 4,
+      "index": 0,
+      "pointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "@bee/data",
+   "version": 1,
+   "hex": "28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab",
+   "value": {
+    "key": "abababababababababababababababababababababababababababababababababababababababab",
+    "value": "abababababababababababababababababababababababababababababababababababababababab"
+   }
+  },
+  {
+   "name": "@bee/data",
+   "version": 1,
+   "hex": "0301020303010203",
+   "value": {
+    "key": "010203",
+    "value": "010203"
+   }
+  },
+  {
+   "name": "@bee/data",
+   "version": 2,
+   "hex": "28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab",
+   "value": {
+    "key": "abababababababababababababababababababababababababababababababababababababababab",
+    "value": "abababababababababababababababababababababababababababababababababababababababab"
+   }
+  },
+  {
+   "name": "@bee/data",
+   "version": 2,
+   "hex": "0301020303010203",
+   "value": {
+    "key": "010203",
+    "value": "010203"
+   }
+  },
+  {
+   "name": "@bee/data",
+   "version": 2,
+   "hex": "0301020303010203",
+   "value": {
+    "key": "010203",
+    "value": "010203"
+   }
+  },
+  {
+   "name": "@bee/key",
+   "version": 1,
+   "hex": "28abababababababababababababababababababababababababababababababababababababababab3f28ababababababababababababababababababababababababababababababababababababababababff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "key": "abababababababababababababababababababababababababababababababababababababababab",
+    "value": "abababababababababababababababababababababababababababababababababababababababab",
+    "valuePointer": {
+     "core": 4294967296,
+     "seq": 4294967296,
+     "offset": 4294967296,
+     "split": 4294967296
+    }
+   }
+  },
+  {
+   "name": "@bee/key",
+   "version": 1,
+   "hex": "0301020300",
+   "value": {
+    "key": "010203",
+    "value": null,
+    "valuePointer": null
+   }
+  },
+  {
+   "name": "@bee/key",
+   "version": 2,
+   "hex": "28abababababababababababababababababababababababababababababababababababababababab3f28ababababababababababababababababababababababababababababababababababababababababff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000",
+   "value": {
+    "key": "abababababababababababababababababababababababababababababababababababababababab",
+    "value": "abababababababababababababababababababababababababababababababababababababababab",
+    "valuePointer": {
+     "core": 4294967296,
+     "seq": 4294967296,
+     "offset": 4294967296,
+     "split": 4294967296
+    }
+   }
+  },
+  {
+   "name": "@bee/key",
+   "version": 2,
+   "hex": "0301020300",
+   "value": {
+    "key": "010203",
+    "value": null,
+    "valuePointer": null
+   }
+  },
+  {
+   "name": "@bee/key",
+   "version": 2,
+   "hex": "030102030601",
+   "value": {
+    "key": "010203",
+    "value": null,
+    "valuePointer": {
+     "core": 1,
+     "seq": 0,
+     "offset": 0,
+     "split": 0
+    }
+   }
+  },
+  {
+   "name": "@bee/core",
+   "version": 1,
+   "hex": "444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "key": "4444444444444444444444444444444444444444444444444444444444444444",
+    "fork": 4294967296,
+    "length": 4294967296,
+    "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+   }
+  },
+  {
+   "name": "@bee/core",
+   "version": 1,
+   "hex": "444444444444444444444444444444444444444444444444444444444444444400",
+   "value": {
+    "key": "4444444444444444444444444444444444444444444444444444444444444444",
+    "fork": 0,
+    "length": 0,
+    "treeHash": null
+   }
+  },
+  {
+   "name": "@bee/core",
+   "version": 2,
+   "hex": "444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "key": "4444444444444444444444444444444444444444444444444444444444444444",
+    "fork": 4294967296,
+    "length": 4294967296,
+    "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+   }
+  },
+  {
+   "name": "@bee/core",
+   "version": 2,
+   "hex": "444444444444444444444444444444444444444444444444444444444444444400",
+   "value": {
+    "key": "4444444444444444444444444444444444444444444444444444444444444444",
+    "fork": 0,
+    "length": 0,
+    "treeHash": null
+   }
+  },
+  {
+   "name": "@bee/core",
+   "version": 2,
+   "hex": "444444444444444444444444444444444444444444444444444444444444444402fd0010",
+   "value": {
+    "key": "4444444444444444444444444444444444444444444444444444444444444444",
+    "fork": 0,
+    "length": 4096,
+    "treeHash": null
+   }
+  },
+  {
+   "name": "@bee/block-0",
+   "version": 1,
+   "hex": "ff0000000001000000ff0000000001000000ff0000000001000000ff00000000010000000fff0000000001000000ff00000000010000000303ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff00000000010000000328abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab03444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "type": 4294967296,
+    "seq": 0,
+    "checkpoint": 4294967296,
+    "batch": {
+     "start": 4294967296,
+     "end": 4294967296
+    },
+    "previous": {
+     "core": 4294967296,
+     "seq": 4294967296
+    },
+    "tree": [
+     {
+      "keys": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ],
+      "children": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ]
+     },
+     {
+      "keys": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ],
+      "children": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ]
+     },
+     {
+      "keys": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ],
+      "children": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ]
+     }
+    ],
+    "data": [
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab"
+     },
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab"
+     },
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab"
+     }
+    ],
+    "cores": [
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     }
+    ]
+   }
+  },
+  {
+   "name": "@bee/block-0",
+   "version": 1,
+   "hex": "fcfd0010fd00100100",
+   "value": {
+    "type": 252,
+    "seq": 0,
+    "checkpoint": 4096,
+    "batch": {
+     "start": 4096,
+     "end": 1
+    },
+    "previous": null,
+    "tree": null,
+    "data": null,
+    "cores": null
+   }
+  },
+  {
+   "name": "@bee/block-0",
+   "version": 2,
+   "hex": "ff0000000001000000ff0000000001000000ff0000000001000000ff00000000010000000fff0000000001000000ff00000000010000000303ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff000000000100000003ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000ff00000000010000000328abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab03444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "type": 4294967296,
+    "seq": 0,
+    "checkpoint": 4294967296,
+    "batch": {
+     "start": 4294967296,
+     "end": 4294967296
+    },
+    "previous": {
+     "core": 4294967296,
+     "seq": 4294967296
+    },
+    "tree": [
+     {
+      "keys": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ],
+      "children": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ]
+     },
+     {
+      "keys": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ],
+      "children": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ]
+     },
+     {
+      "keys": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ],
+      "children": [
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       },
+       {
+        "core": 4294967296,
+        "seq": 4294967296,
+        "offset": 4294967296
+       }
+      ]
+     }
+    ],
+    "data": [
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab"
+     },
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab"
+     },
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab"
+     }
+    ],
+    "cores": [
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     }
+    ]
+   }
+  },
+  {
+   "name": "@bee/block-0",
+   "version": 2,
+   "hex": "fcfd001001fe5634120000",
+   "value": {
+    "type": 252,
+    "seq": 0,
+    "checkpoint": 4096,
+    "batch": {
+     "start": 1,
+     "end": 1193046
+    },
+    "previous": null,
+    "tree": null,
+    "data": null,
+    "cores": null
+   }
+  },
+  {
+   "name": "@bee/block-0",
+   "version": 2,
+   "hex": "fcfd001001fe5634120005fc01010301020303010203",
+   "value": {
+    "type": 252,
+    "seq": 0,
+    "checkpoint": 4096,
+    "batch": {
+     "start": 1,
+     "end": 1193046
+    },
+    "previous": {
+     "core": 252,
+     "seq": 1
+    },
+    "tree": null,
+    "data": [
+     {
+      "key": "010203",
+      "value": "010203"
+     }
+    ],
+    "cores": null
+   }
+  },
+  {
+   "name": "@bee/metadata",
+   "version": 1,
+   "hex": "03444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff0000000001000000444444444444444444444444444444444444444444444444444444444444444400",
+   "value": {
+    "cores": [
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     }
+    ],
+    "mappings": null
+   }
+  },
+  {
+   "name": "@bee/metadata",
+   "version": 1,
+   "hex": "0000",
+   "value": {
+    "cores": [],
+    "mappings": null
+   }
+  },
+  {
+   "name": "@bee/metadata",
+   "version": 2,
+   "hex": "03444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff00000000010000004444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444407ff0000000001000000ff000000000100000044444444444444444444444444444444444444444444444444444444444444440103444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "cores": [
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 4294967296,
+      "length": 4294967296,
+      "treeHash": "4444444444444444444444444444444444444444444444444444444444444444"
+     }
+    ],
+    "mappings": [
+     {
+      "from": "4444444444444444444444444444444444444444444444444444444444444444",
+      "to": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "from": "4444444444444444444444444444444444444444444444444444444444444444",
+      "to": "4444444444444444444444444444444444444444444444444444444444444444"
+     },
+     {
+      "from": "4444444444444444444444444444444444444444444444444444444444444444",
+      "to": "4444444444444444444444444444444444444444444444444444444444444444"
+     }
+    ]
+   }
+  },
+  {
+   "name": "@bee/metadata",
+   "version": 2,
+   "hex": "0000",
+   "value": {
+    "cores": [],
+    "mappings": null
+   }
+  },
+  {
+   "name": "@bee/metadata",
+   "version": 2,
+   "hex": "014444444444444444444444444444444444444444444444444444444444444444020100",
+   "value": {
+    "cores": [
+     {
+      "key": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fork": 0,
+      "length": 1,
+      "treeHash": null
+     }
+    ],
+    "mappings": null
+   }
+  },
+  {
+   "name": "@bee/block-1",
+   "version": 1,
+   "hex": "ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000fdff00ff0000000001000000ff0000000001000000650344444444444444444444444444444444444444444444444444444444444444440044444444444444444444444444444444444444444444444444444444444444440044444444444444444444444444444444444444444444444444444444444444440000030307070703070707030707070307070703070707030707070328abababababababababababababababababababababababababababababababababababababababab0328abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab0328abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab0328abababababababababababababababababababababababababababababababababababababababab0328abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab03031fff1fff1fff031fff1fff1fff031fff1fff1fffff0000000001000000ff0000000001000000",
+   "value": {
+    "type": 4294967296,
+    "seq": 0,
+    "checkpoint": 4294967296,
+    "batch": {
+     "start": 4294967296,
+     "end": 4294967296
+    },
+    "previous": {
+     "core": 4294967296,
+     "seq": 4294967296
+    },
+    "metadata": {
+     "cores": [
+      {
+       "key": "4444444444444444444444444444444444444444444444444444444444444444",
+       "fork": 0,
+       "length": 0,
+       "treeHash": null
+      },
+      {
+       "key": "4444444444444444444444444444444444444444444444444444444444444444",
+       "fork": 0,
+       "length": 0,
+       "treeHash": null
+      },
+      {
+       "key": "4444444444444444444444444444444444444444444444444444444444444444",
+       "fork": 0,
+       "length": 0,
+       "treeHash": null
+      }
+     ],
+     "mappings": null
+    },
+    "tree": [
+     {
+      "keys": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ],
+      "children": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ]
+     },
+     {
+      "keys": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ],
+      "children": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ]
+     },
+     {
+      "keys": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ],
+      "children": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ]
+     }
+    ],
+    "keys": [
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab",
+      "valuePointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0,
+       "split": 0
+      }
+     },
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab",
+      "valuePointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0,
+       "split": 0
+      }
+     },
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab",
+      "valuePointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0,
+       "split": 0
+      }
+     }
+    ],
+    "values": [
+     "abababababababababababababababababababababababababababababababababababababababab",
+     "abababababababababababababababababababababababababababababababababababababababab",
+     "abababababababababababababababababababababababababababababababababababababababab"
+    ],
+    "cohorts": [
+     [
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      }
+     ],
+     [
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      }
+     ],
+     [
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      }
+     ]
+    ],
+    "t": 4294967296,
+    "invalidation": 4294967296
+   }
+  },
+  {
+   "name": "@bee/block-1",
+   "version": 1,
+   "hex": "fc0000fe5634120000",
+   "value": {
+    "type": 252,
+    "seq": 0,
+    "checkpoint": 0,
+    "batch": {
+     "start": 0,
+     "end": 1193046
+    },
+    "previous": null,
+    "metadata": null,
+    "tree": null,
+    "keys": null,
+    "values": null,
+    "cohorts": null,
+    "t": 0,
+    "invalidation": 0
+   }
+  },
+  {
+   "name": "@bee/block-1",
+   "version": 2,
+   "hex": "ff0000000001000000ff0000000001000000ff0000000001000000ff0000000001000000fdff00ff0000000001000000ff0000000001000000fd2601034444444444444444444444444444444444444444444444444444444444444444004444444444444444444444444444444444444444444444444444444444444444004444444444444444444444444444444444444444444444444444444444444444000103444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444030307070703070707030707070307070703070707030707070328abababababababababababababababababababababababababababababababababababababababab0328abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab0328abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab0328abababababababababababababababababababababababababababababababababababababababab0328abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab28abababababababababababababababababababababababababababababababababababababababab03031fff1fff1fff031fff1fff1fff031fff1fff1fffff0000000001000000ff0000000001000000",
+   "value": {
+    "type": 4294967296,
+    "seq": 0,
+    "checkpoint": 4294967296,
+    "batch": {
+     "start": 4294967296,
+     "end": 4294967296
+    },
+    "previous": {
+     "core": 4294967296,
+     "seq": 4294967296
+    },
+    "metadata": {
+     "cores": [
+      {
+       "key": "4444444444444444444444444444444444444444444444444444444444444444",
+       "fork": 0,
+       "length": 0,
+       "treeHash": null
+      },
+      {
+       "key": "4444444444444444444444444444444444444444444444444444444444444444",
+       "fork": 0,
+       "length": 0,
+       "treeHash": null
+      },
+      {
+       "key": "4444444444444444444444444444444444444444444444444444444444444444",
+       "fork": 0,
+       "length": 0,
+       "treeHash": null
+      }
+     ],
+     "mappings": [
+      {
+       "from": "4444444444444444444444444444444444444444444444444444444444444444",
+       "to": "4444444444444444444444444444444444444444444444444444444444444444"
+      },
+      {
+       "from": "4444444444444444444444444444444444444444444444444444444444444444",
+       "to": "4444444444444444444444444444444444444444444444444444444444444444"
+      },
+      {
+       "from": "4444444444444444444444444444444444444444444444444444444444444444",
+       "to": "4444444444444444444444444444444444444444444444444444444444444444"
+      }
+     ]
+    },
+    "tree": [
+     {
+      "keys": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ],
+      "children": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ]
+     },
+     {
+      "keys": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ],
+      "children": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ]
+     },
+     {
+      "keys": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ],
+      "children": [
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       },
+       {
+        "type": 7,
+        "index": 0,
+        "pointer": null
+       }
+      ]
+     }
+    ],
+    "keys": [
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab",
+      "valuePointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0,
+       "split": 0
+      }
+     },
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab",
+      "valuePointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0,
+       "split": 0
+      }
+     },
+     {
+      "key": "abababababababababababababababababababababababababababababababababababababababab",
+      "value": "abababababababababababababababababababababababababababababababababababababababab",
+      "valuePointer": {
+       "core": 0,
+       "seq": 0,
+       "offset": 0,
+       "split": 0
+      }
+     }
+    ],
+    "values": [
+     "abababababababababababababababababababababababababababababababababababababababab",
+     "abababababababababababababababababababababababababababababababababababababababab",
+     "abababababababababababababababababababababababababababababababababababababababab"
+    ],
+    "cohorts": [
+     [
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      }
+     ],
+     [
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      }
+     ],
+     [
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      },
+      {
+       "type": 7,
+       "index": 255,
+       "pointer": {
+        "core": 0,
+        "seq": 0,
+        "offset": 0
+       }
+      }
+     ]
+    ],
+    "t": 4294967296,
+    "invalidation": 4294967296
+   }
+  },
+  {
+   "name": "@bee/block-1",
+   "version": 2,
+   "hex": "00fdfd00fdfd000100",
+   "value": {
+    "type": 0,
+    "seq": 0,
+    "checkpoint": 253,
+    "batch": {
+     "start": 253,
+     "end": 1
+    },
+    "previous": null,
+    "metadata": null,
+    "tree": null,
+    "keys": null,
+    "values": null,
+    "cohorts": null,
+    "t": 0,
+    "invalidation": 0
+   }
+  },
+  {
+   "name": "@bee/block-1",
+   "version": 2,
+   "hex": "00fdfd00fdfd00015501fd001001010501050103010203fdfd00",
+   "value": {
+    "type": 0,
+    "seq": 0,
+    "checkpoint": 253,
+    "batch": {
+     "start": 253,
+     "end": 1
+    },
+    "previous": {
+     "core": 1,
+     "seq": 4096
+    },
+    "metadata": null,
+    "tree": [
+     {
+      "keys": [
+       {
+        "type": 5,
+        "index": 0,
+        "pointer": null
+       }
+      ],
+      "children": [
+       {
+        "type": 5,
+        "index": 0,
+        "pointer": null
+       }
+      ]
+     }
+    ],
+    "keys": null,
+    "values": [
+     "010203"
+    ],
+    "cohorts": null,
+    "t": 253,
+    "invalidation": 0
+   }
+  },
+  {
+   "name": "@bee/mapping",
+   "version": 1,
+   "hex": "44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "from": "4444444444444444444444444444444444444444444444444444444444444444",
+    "to": "4444444444444444444444444444444444444444444444444444444444444444"
+   }
+  },
+  {
+   "name": "@bee/mapping",
+   "version": 1,
+   "hex": "44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "from": "4444444444444444444444444444444444444444444444444444444444444444",
+    "to": "4444444444444444444444444444444444444444444444444444444444444444"
+   }
+  },
+  {
+   "name": "@bee/mapping",
+   "version": 2,
+   "hex": "44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "from": "4444444444444444444444444444444444444444444444444444444444444444",
+    "to": "4444444444444444444444444444444444444444444444444444444444444444"
+   }
+  },
+  {
+   "name": "@bee/mapping",
+   "version": 2,
+   "hex": "44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "from": "4444444444444444444444444444444444444444444444444444444444444444",
+    "to": "4444444444444444444444444444444444444444444444444444444444444444"
+   }
+  },
+  {
+   "name": "@bee/mapping",
+   "version": 2,
+   "hex": "44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
+   "value": {
+    "from": "4444444444444444444444444444444444444444444444444444444444444444",
+    "to": "4444444444444444444444444444444444444444444444444444444444444444"
+   }
+  }
+ ],
+ "skipped": 0
+}
