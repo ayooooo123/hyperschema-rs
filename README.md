@@ -143,12 +143,12 @@ bytes.
 
 | schema | source | cases | skipped |
 |---|---|---|---|
-| hyperbee2 | hyperbee2 2.21.1 | 78 | 0 |
+| hyperbee2 | hyperbee2 2.21.1 | 79 | 0 |
 | autobee | autobee 2.12.1 | 70 | 15 |
 | protomux-wakeup | protomux-wakeup 2.9.0, schema reconstructed from the shipped `index.js` | 15 | 0 |
 | hypercore-storage | hypercore-storage 3.4.0 | 80 | 3 |
 | hyperdht-address | hyperdht-address 1.1.1 | 5 | 0 |
-| synthetic | exercises features the shipped schemas do not use | 130 | 2 |
+| synthetic | exercises features the shipped schemas do not use | 142 | 4 |
 
 Skipped cases are versioned payloads the reference cannot encode (decode-only
 `legacy.js` types), payloads whose JS decode applies a `map`, and types that are
@@ -169,8 +169,9 @@ cd fixtures/gen && npm install && npm run gen
 The synthetic schema covers what the real ones miss: every primitive, all
 `uint1`-`uint7` bitwise widths, framed and unframed versioned types, versioned
 fields, inline structs nested two deep, recursion, records, bool bitfields,
-framed arrays of non-compact structs, aliases, constants and `flagsPosition`
-before a required field.
+framed arrays of non-compact structs, framed structs whose last field is
+optional, nested framed versioned bodies, aliases, constants and
+`flagsPosition` before a required field.
 
 ## Layout
 

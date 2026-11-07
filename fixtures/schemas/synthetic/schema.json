@@ -6,16 +6,57 @@
       "namespace": "syn",
       "compact": true,
       "fields": [
-        { "name": "u1", "type": "uint1", "version": 1 },
-        { "name": "u2", "type": "uint2", "version": 1 },
-        { "name": "u3", "type": "uint3", "version": 1 },
-        { "name": "u4", "type": "uint4", "version": 1 },
-        { "name": "u5", "type": "uint5", "version": 1 },
-        { "name": "u6", "type": "uint6", "version": 1 },
-        { "name": "u7", "type": "uint7", "version": 1 },
-        { "name": "fixed", "required": true, "type": "fixed8", "version": 1 },
-        { "name": "extra", "type": "uint", "version": 2 },
-        { "name": "flag", "type": "bool", "version": 1 }
+        {
+          "name": "u1",
+          "type": "uint1",
+          "version": 1
+        },
+        {
+          "name": "u2",
+          "type": "uint2",
+          "version": 1
+        },
+        {
+          "name": "u3",
+          "type": "uint3",
+          "version": 1
+        },
+        {
+          "name": "u4",
+          "type": "uint4",
+          "version": 1
+        },
+        {
+          "name": "u5",
+          "type": "uint5",
+          "version": 1
+        },
+        {
+          "name": "u6",
+          "type": "uint6",
+          "version": 1
+        },
+        {
+          "name": "u7",
+          "type": "uint7",
+          "version": 1
+        },
+        {
+          "name": "fixed",
+          "required": true,
+          "type": "fixed8",
+          "version": 1
+        },
+        {
+          "name": "extra",
+          "type": "uint",
+          "version": 2
+        },
+        {
+          "name": "flag",
+          "type": "bool",
+          "version": 1
+        }
       ]
     },
     {
@@ -23,70 +64,317 @@
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "u", "required": true, "type": "uint", "version": 1 },
-        { "name": "u8", "required": true, "type": "uint8", "version": 1 },
-        { "name": "u16", "required": true, "type": "uint16", "version": 1 },
-        { "name": "u24", "required": true, "type": "uint24", "version": 1 },
-        { "name": "u32", "required": true, "type": "uint32", "version": 1 },
-        { "name": "u40", "required": true, "type": "uint40", "version": 1 },
-        { "name": "u48", "required": true, "type": "uint48", "version": 1 },
-        { "name": "u56", "required": true, "type": "uint56", "version": 1 },
-        { "name": "u64", "required": true, "type": "uint64", "version": 1 },
-        { "name": "i", "required": true, "type": "int", "version": 1 },
-        { "name": "i8", "required": true, "type": "int8", "version": 1 },
-        { "name": "i16", "required": true, "type": "int16", "version": 1 },
-        { "name": "i24", "required": true, "type": "int24", "version": 1 },
-        { "name": "i32", "required": true, "type": "int32", "version": 1 },
-        { "name": "i40", "required": true, "type": "int40", "version": 1 },
-        { "name": "i48", "required": true, "type": "int48", "version": 1 },
-        { "name": "i56", "required": true, "type": "int56", "version": 1 },
-        { "name": "i64", "required": true, "type": "int64", "version": 1 },
-        { "name": "f32", "required": true, "type": "float32", "version": 1 },
-        { "name": "f64", "required": true, "type": "float64", "version": 1 },
-        { "name": "port", "required": true, "type": "port", "version": 1 },
-        { "name": "s", "required": true, "type": "string", "version": 1 },
-        { "name": "buf", "required": true, "type": "buffer", "version": 1 },
-        { "name": "obuf", "required": true, "type": "optionalBuffer", "version": 1 },
-        { "name": "f8", "required": true, "type": "fixed8", "version": 1 },
-        { "name": "f16", "required": true, "type": "fixed16", "version": 1 },
-        { "name": "f24", "required": true, "type": "fixed24", "version": 1 },
-        { "name": "f32b", "required": true, "type": "fixed32", "version": 1 },
-        { "name": "f64b", "required": true, "type": "fixed64", "version": 1 },
-        { "name": "b", "required": true, "type": "bool", "version": 1 },
-        { "name": "ip", "required": true, "type": "ip", "version": 1 },
-        { "name": "ip4", "required": true, "type": "ipv4", "version": 1 },
-        { "name": "ip6", "required": true, "type": "ipv6", "version": 1 },
-        { "name": "ipa", "required": true, "type": "ipAddress", "version": 1 },
-        { "name": "ip4a", "required": true, "type": "ipv4Address", "version": 1 },
-        { "name": "ip6a", "required": true, "type": "ipv6Address", "version": 1 },
-        { "name": "bu64", "required": true, "type": "biguint64", "version": 1 },
-        { "name": "bi64", "required": true, "type": "bigint64", "version": 1 },
-        { "name": "non", "required": true, "type": "none", "version": 1 },
-        { "name": "maybe", "type": "uint", "version": 1 },
-        { "name": "maybe-buf", "type": "optionalBuffer", "version": 1 }
+        {
+          "name": "u",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "u8",
+          "required": true,
+          "type": "uint8",
+          "version": 1
+        },
+        {
+          "name": "u16",
+          "required": true,
+          "type": "uint16",
+          "version": 1
+        },
+        {
+          "name": "u24",
+          "required": true,
+          "type": "uint24",
+          "version": 1
+        },
+        {
+          "name": "u32",
+          "required": true,
+          "type": "uint32",
+          "version": 1
+        },
+        {
+          "name": "u40",
+          "required": true,
+          "type": "uint40",
+          "version": 1
+        },
+        {
+          "name": "u48",
+          "required": true,
+          "type": "uint48",
+          "version": 1
+        },
+        {
+          "name": "u56",
+          "required": true,
+          "type": "uint56",
+          "version": 1
+        },
+        {
+          "name": "u64",
+          "required": true,
+          "type": "uint64",
+          "version": 1
+        },
+        {
+          "name": "i",
+          "required": true,
+          "type": "int",
+          "version": 1
+        },
+        {
+          "name": "i8",
+          "required": true,
+          "type": "int8",
+          "version": 1
+        },
+        {
+          "name": "i16",
+          "required": true,
+          "type": "int16",
+          "version": 1
+        },
+        {
+          "name": "i24",
+          "required": true,
+          "type": "int24",
+          "version": 1
+        },
+        {
+          "name": "i32",
+          "required": true,
+          "type": "int32",
+          "version": 1
+        },
+        {
+          "name": "i40",
+          "required": true,
+          "type": "int40",
+          "version": 1
+        },
+        {
+          "name": "i48",
+          "required": true,
+          "type": "int48",
+          "version": 1
+        },
+        {
+          "name": "i56",
+          "required": true,
+          "type": "int56",
+          "version": 1
+        },
+        {
+          "name": "i64",
+          "required": true,
+          "type": "int64",
+          "version": 1
+        },
+        {
+          "name": "f32",
+          "required": true,
+          "type": "float32",
+          "version": 1
+        },
+        {
+          "name": "f64",
+          "required": true,
+          "type": "float64",
+          "version": 1
+        },
+        {
+          "name": "port",
+          "required": true,
+          "type": "port",
+          "version": 1
+        },
+        {
+          "name": "s",
+          "required": true,
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "buf",
+          "required": true,
+          "type": "buffer",
+          "version": 1
+        },
+        {
+          "name": "obuf",
+          "required": true,
+          "type": "optionalBuffer",
+          "version": 1
+        },
+        {
+          "name": "f8",
+          "required": true,
+          "type": "fixed8",
+          "version": 1
+        },
+        {
+          "name": "f16",
+          "required": true,
+          "type": "fixed16",
+          "version": 1
+        },
+        {
+          "name": "f24",
+          "required": true,
+          "type": "fixed24",
+          "version": 1
+        },
+        {
+          "name": "f32b",
+          "required": true,
+          "type": "fixed32",
+          "version": 1
+        },
+        {
+          "name": "f64b",
+          "required": true,
+          "type": "fixed64",
+          "version": 1
+        },
+        {
+          "name": "b",
+          "required": true,
+          "type": "bool",
+          "version": 1
+        },
+        {
+          "name": "ip",
+          "required": true,
+          "type": "ip",
+          "version": 1
+        },
+        {
+          "name": "ip4",
+          "required": true,
+          "type": "ipv4",
+          "version": 1
+        },
+        {
+          "name": "ip6",
+          "required": true,
+          "type": "ipv6",
+          "version": 1
+        },
+        {
+          "name": "ipa",
+          "required": true,
+          "type": "ipAddress",
+          "version": 1
+        },
+        {
+          "name": "ip4a",
+          "required": true,
+          "type": "ipv4Address",
+          "version": 1
+        },
+        {
+          "name": "ip6a",
+          "required": true,
+          "type": "ipv6Address",
+          "version": 1
+        },
+        {
+          "name": "bu64",
+          "required": true,
+          "type": "biguint64",
+          "version": 1
+        },
+        {
+          "name": "bi64",
+          "required": true,
+          "type": "bigint64",
+          "version": 1
+        },
+        {
+          "name": "non",
+          "required": true,
+          "type": "none",
+          "version": 1
+        },
+        {
+          "name": "maybe",
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "maybe-buf",
+          "type": "optionalBuffer",
+          "version": 1
+        }
       ]
     },
-    { "name": "children", "namespace": "syn", "array": true, "type": "@syn/plain" },
-    { "name": "flags-list", "namespace": "syn", "array": true, "type": "bool" },
+    {
+      "name": "children",
+      "namespace": "syn",
+      "array": true,
+      "type": "@syn/plain"
+    },
+    {
+      "name": "flags-list",
+      "namespace": "syn",
+      "array": true,
+      "type": "bool"
+    },
     {
       "name": "small",
       "namespace": "syn",
       "compact": true,
       "fields": [
-        { "name": "key", "required": true, "type": "fixed32", "version": 1 },
-        { "name": "extra", "type": "uint", "version": 1 }
+        {
+          "name": "key",
+          "required": true,
+          "type": "fixed32",
+          "version": 1
+        },
+        {
+          "name": "extra",
+          "type": "uint",
+          "version": 1
+        }
       ]
     },
-    { "name": "small-list", "namespace": "syn", "array": true, "type": "@syn/small" },
-    { "name": "nested-list", "namespace": "syn", "array": true, "type": "@syn/small-list" },
-    { "name": "pairs", "namespace": "syn", "record": true, "key": "string", "value": "@syn/small" },
+    {
+      "name": "small-list",
+      "namespace": "syn",
+      "array": true,
+      "type": "@syn/small"
+    },
+    {
+      "name": "nested-list",
+      "namespace": "syn",
+      "array": true,
+      "type": "@syn/small-list"
+    },
+    {
+      "name": "pairs",
+      "namespace": "syn",
+      "record": true,
+      "key": "string",
+      "value": "@syn/small"
+    },
     {
       "name": "rec",
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "value", "required": true, "type": "uint", "version": 1 },
-        { "name": "next", "type": "@syn/rec", "version": 1 }
+        {
+          "name": "value",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "next",
+          "type": "@syn/rec",
+          "version": 1
+        }
       ]
     },
     {
@@ -94,23 +382,50 @@
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "head", "required": true, "type": "@syn/rec", "version": 1 }
+        {
+          "name": "head",
+          "required": true,
+          "type": "@syn/rec",
+          "version": 1
+        }
       ]
     },
     {
       "name": "color",
       "namespace": "syn",
       "offset": 4,
-      "enum": ["red", "green", "blue"]
+      "enum": [
+        "red",
+        "green",
+        "blue"
+      ]
     },
-    { "name": "kind", "namespace": "syn", "offset": 0, "strings": true, "enum": ["a", "b"] },
+    {
+      "name": "kind",
+      "namespace": "syn",
+      "offset": 0,
+      "strings": true,
+      "enum": [
+        "a",
+        "b"
+      ]
+    },
     {
       "name": "uses-enums",
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "color", "required": true, "type": "@syn/color", "version": 1 },
-        { "name": "kind", "type": "@syn/kind", "version": 1 }
+        {
+          "name": "color",
+          "required": true,
+          "type": "@syn/color",
+          "version": 1
+        },
+        {
+          "name": "kind",
+          "type": "@syn/kind",
+          "version": 1
+        }
       ]
     },
     {
@@ -118,8 +433,17 @@
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "a", "required": true, "type": "uint", "version": 1 },
-        { "name": "b", "type": "uint", "version": 1 }
+        {
+          "name": "a",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "b",
+          "type": "uint",
+          "version": 1
+        }
       ]
     },
     {
@@ -127,8 +451,17 @@
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "a", "required": true, "type": "uint", "version": 1 },
-        { "name": "c", "type": "uint", "version": 3 }
+        {
+          "name": "a",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "c",
+          "type": "uint",
+          "version": 3
+        }
       ]
     },
     {
@@ -136,8 +469,16 @@
       "namespace": "syn",
       "framed": true,
       "versions": [
-        { "type": "@syn/v1-body", "map": null, "version": 1 },
-        { "type": "@syn/v3-body", "map": null, "version": 3 }
+        {
+          "type": "@syn/v1-body",
+          "map": null,
+          "version": 1
+        },
+        {
+          "type": "@syn/v3-body",
+          "map": null,
+          "version": 3
+        }
       ]
     },
     {
@@ -145,8 +486,16 @@
       "namespace": "syn",
       "framed": false,
       "versions": [
-        { "type": "@syn/v1-body", "map": null, "version": 1 },
-        { "type": "@syn/v3-body", "map": null, "version": 3 }
+        {
+          "type": "@syn/v1-body",
+          "map": null,
+          "version": 1
+        },
+        {
+          "type": "@syn/v3-body",
+          "map": null,
+          "version": 3
+        }
       ]
     },
     {
@@ -155,9 +504,23 @@
       "compact": false,
       "flagsPosition": 1,
       "fields": [
-        { "name": "head", "required": true, "type": "uint", "version": 1 },
-        { "name": "body", "required": true, "type": "fixed32", "version": 1 },
-        { "name": "tail", "type": "uint", "version": 1 }
+        {
+          "name": "head",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "body",
+          "required": true,
+          "type": "fixed32",
+          "version": 1
+        },
+        {
+          "name": "tail",
+          "type": "uint",
+          "version": 1
+        }
       ]
     },
     {
@@ -165,7 +528,11 @@
       "namespace": "syn",
       "compact": true,
       "fields": [
-        { "name": "g", "type": "uint", "version": 1 }
+        {
+          "name": "g",
+          "type": "uint",
+          "version": 1
+        }
       ]
     },
     {
@@ -173,10 +540,28 @@
       "namespace": "syn",
       "compact": true,
       "fields": [
-        { "name": "a", "type": "uint", "version": 1 },
-        { "name": "b", "type": "bool", "version": 1 },
-        { "name": "grand", "inline": true, "type": "@syn/inline-grand", "version": 1 },
-        { "name": "c", "required": true, "type": "uint", "version": 1 }
+        {
+          "name": "a",
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "b",
+          "type": "bool",
+          "version": 1
+        },
+        {
+          "name": "grand",
+          "inline": true,
+          "type": "@syn/inline-grand",
+          "version": 1
+        },
+        {
+          "name": "c",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        }
       ]
     },
     {
@@ -184,9 +569,23 @@
       "namespace": "syn",
       "compact": true,
       "fields": [
-        { "name": "x", "required": true, "type": "uint", "version": 1 },
-        { "name": "kid", "inline": true, "type": "@syn/inline-child", "version": 1 },
-        { "name": "y", "type": "uint", "version": 1 }
+        {
+          "name": "x",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "kid",
+          "inline": true,
+          "type": "@syn/inline-child",
+          "version": 1
+        },
+        {
+          "name": "y",
+          "type": "uint",
+          "version": 1
+        }
       ]
     },
     {
@@ -194,10 +593,30 @@
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "seq", "constant": 0, "type": "uint", "version": 1 },
-        { "name": "label", "constant": "syn", "type": "string", "version": 1 },
-        { "name": "on", "constant": true, "type": "bool", "version": 1 },
-        { "name": "real", "required": true, "type": "uint", "version": 1 }
+        {
+          "name": "seq",
+          "constant": 0,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "label",
+          "constant": "syn",
+          "type": "string",
+          "version": 1
+        },
+        {
+          "name": "on",
+          "constant": true,
+          "type": "bool",
+          "version": 1
+        },
+        {
+          "name": "real",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        }
       ]
     },
     {
@@ -205,9 +624,23 @@
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "a", "required": true, "type": "uint", "version": 1 },
-        { "name": "b", "type": "uint", "version": 2 },
-        { "name": "c", "required": true, "type": "fixed32", "version": 2 }
+        {
+          "name": "a",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "b",
+          "type": "uint",
+          "version": 2
+        },
+        {
+          "name": "c",
+          "required": true,
+          "type": "fixed32",
+          "version": 2
+        }
       ]
     },
     {
@@ -215,20 +648,50 @@
       "namespace": "syn",
       "compact": true,
       "fields": [
-        { "name": "a", "type": "bool", "version": 1 },
-        { "name": "b", "type": "bool", "version": 1 },
-        { "name": "c", "type": "bool", "version": 1 }
+        {
+          "name": "a",
+          "type": "bool",
+          "version": 1
+        },
+        {
+          "name": "b",
+          "type": "bool",
+          "version": 1
+        },
+        {
+          "name": "c",
+          "type": "bool",
+          "version": 1
+        }
       ]
     },
-    { "name": "hash32", "namespace": "syn", "alias": "fixed32" },
-    { "name": "many", "namespace": "syn", "alias": "@syn/small-list" },
+    {
+      "name": "hash32",
+      "namespace": "syn",
+      "alias": "fixed32"
+    },
+    {
+      "name": "many",
+      "namespace": "syn",
+      "alias": "@syn/small-list"
+    },
     {
       "name": "alias-use",
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "h", "required": true, "type": "@syn/hash32", "version": 1 },
-        { "name": "m", "required": true, "type": "@syn/many", "version": 1 }
+        {
+          "name": "h",
+          "required": true,
+          "type": "@syn/hash32",
+          "version": 1
+        },
+        {
+          "name": "m",
+          "required": true,
+          "type": "@syn/many",
+          "version": 1
+        }
       ]
     },
     {
@@ -236,8 +699,111 @@
       "namespace": "syn",
       "compact": false,
       "fields": [
-        { "name": "a", "required": true, "type": "uint", "version": 1 },
-        { "name": "rest", "required": true, "type": "raw", "version": 1 }
+        {
+          "name": "a",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "rest",
+          "required": true,
+          "type": "raw",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "frame-inner",
+      "namespace": "syn",
+      "compact": false,
+      "flagsPosition": 0,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "version": 2
+        }
+      ]
+    },
+    {
+      "name": "frame-boxed",
+      "namespace": "syn",
+      "compact": false,
+      "flagsPosition": 0,
+      "fields": [
+        {
+          "name": "inner",
+          "required": true,
+          "type": "@syn/frame-inner",
+          "version": 1
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "version": 2
+        }
+      ]
+    },
+    {
+      "name": "frame-versions",
+      "namespace": "syn",
+      "framed": true,
+      "versions": [
+        {
+          "type": "@syn/frame-inner",
+          "map": null,
+          "version": 1
+        },
+        {
+          "type": "@syn/frame-boxed",
+          "map": null,
+          "version": 2
+        }
+      ]
+    },
+    {
+      "name": "frame-holder",
+      "namespace": "syn",
+      "compact": false,
+      "flagsPosition": 4,
+      "fields": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "one",
+          "required": true,
+          "type": "@syn/frame-inner",
+          "version": 1
+        },
+        {
+          "name": "more",
+          "required": true,
+          "array": true,
+          "type": "@syn/frame-inner",
+          "version": 1
+        },
+        {
+          "name": "vb",
+          "required": true,
+          "type": "@syn/frame-versions",
+          "version": 1
+        },
+        {
+          "name": "tail",
+          "type": "uint",
+          "version": 1
+        }
       ]
     }
   ]

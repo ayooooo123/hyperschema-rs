@@ -115,24 +115,47 @@ fn every_fixture_case_round_trips() {
 }
 
 /// Shared by every generated case: decode the bytes, compare the value, then
-/// encode the value again.
-pub fn check<T>(expected: &T, version: u64, hex: Vec<u8>)
-where
+/// encode the value again. `decode_version` differs from `version` when the
+/// bytes were written by another schema version, and `reencode` differs from
+/// `hex` when today's codec writes the value differently.
+pub fn check<T>(
+    expected: &T,
+    version: u64,
+    decode_version: u64,
+    hex: Vec<u8>,
+    reencode: Vec<u8>,
+) where
     T: VersionedValue + Codec + PartialEq + std::fmt::Debug,
 {
     assert_eq!(
         expected.encoded_len_at(version),
-        hex.len(),
+        reencode.len(),
         "encoded length at version {version}"
     );
 
     let mut w = Writer::new();
     expected.encode_at(version, &mut w);
-    assert_eq!(w.finish().as_ref(), &hex[..], "encode at version {version}");
+    assert_eq!(
+        w.finish().as_ref(),
+        &reencode[..],
+        "encode at version {version}"
+    );
 
     let mut r = Reader::new(Bytes::from(hex));
-    let decoded = T::decode_at(&mut r, version).expect("decode");
-    assert_eq!(&decoded, expected, "decode at version {version}");
+    let decoded = T::decode_at(&mut r, decode_version).expect("decode");
+    assert_eq!(&decoded, expected, "decode at version {decode_version}");
+}
+
+/// A case the wire format must reject: an error, never a panic or a value.
+pub fn check_invalid<T>(hex: Vec<u8>, version: u64)
+where
+    T: VersionedValue,
+{
+    let mut r = Reader::new(Bytes::from(hex));
+    assert!(
+        T::decode_at(&mut r, version).is_err(),
+        "decode at version {version} accepted broken bytes"
+    );
 }
 
 /// The version aware half of the generated API.

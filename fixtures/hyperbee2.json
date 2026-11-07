@@ -2020,6 +2020,46 @@
     "from": "4444444444444444444444444444444444444444444444444444444444444444",
     "to": "4444444444444444444444444444444444444444444444444444444444444444"
    }
+  },
+  {
+   "name": "@bee/block-1",
+   "version": 1,
+   "hex": "0105030906230144444444444444444444444444444444444444444444444444444444444444440207010000",
+   "value": {
+    "type": 1,
+    "seq": 0,
+    "checkpoint": 5,
+    "batch": {
+     "start": 3,
+     "end": 9
+    },
+    "previous": null,
+    "metadata": {
+     "cores": [
+      {
+       "key": "4444444444444444444444444444444444444444444444444444444444444444",
+       "fork": 0,
+       "length": 7,
+       "treeHash": null
+      }
+     ],
+     "mappings": null
+    },
+    "tree": [
+     {
+      "keys": [],
+      "children": []
+     }
+    ],
+    "keys": null,
+    "values": null,
+    "cohorts": null,
+    "t": 0,
+    "invalidation": 0
+   },
+   "decodeVersion": 2,
+   "reencode": "010503090624014444444444444444444444444444444444444444444444444444444444444444020700010000",
+   "note": "schema v1 metadata frame without a flags word, decoded at version 2"
   }
  ],
  "skipped": 0

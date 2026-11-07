@@ -2014,7 +2014,256 @@
     "a": 1193046,
     "rest": "726177207461696c"
    }
+  },
+  {
+   "name": "@syn/frame-versions",
+   "version": 3,
+   "hex": "011c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c93",
+   "value": {
+    "version": 1,
+    "id": 4294967296,
+    "label": "héllo wörld ✓"
+   }
+  },
+  {
+   "name": "@syn/frame-versions",
+   "version": 3,
+   "hex": "0230011c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c931168c3a96c6c6f2077c3b6726c6420e29c93",
+   "value": {
+    "version": 2,
+    "inner": {
+     "id": 4294967296,
+     "label": "héllo wörld ✓"
+    },
+    "note": "héllo wörld ✓"
+   }
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 1,
+   "hex": "ff00000000010000000a00ff0000000001000000030a00ff00000000010000000a00ff00000000010000000a00ff0000000001000000020c000a00ff000000000100000001ff0000000001000000",
+   "value": {
+    "id": 4294967296,
+    "one": {
+     "id": 4294967296,
+     "label": null
+    },
+    "more": [
+     {
+      "id": 4294967296,
+      "label": null
+     },
+     {
+      "id": 4294967296,
+      "label": null
+     },
+     {
+      "id": 4294967296,
+      "label": null
+     }
+    ],
+    "vb": {
+     "version": 2,
+     "inner": {
+      "version": 0,
+      "id": 4294967296,
+      "label": null
+     },
+     "note": null
+    },
+    "tail": 4294967296
+   }
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 1,
+   "hex": "000400fdfd00000204000200fc00",
+   "value": {
+    "id": 0,
+    "one": {
+     "id": 253,
+     "label": null
+    },
+    "more": [],
+    "vb": {
+     "version": 2,
+     "inner": {
+      "version": 0,
+      "id": 252,
+      "label": null
+     },
+     "note": null
+    },
+    "tail": 0
+   }
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 2,
+   "hex": "ff00000000010000001c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c93031c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c931c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c931c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c93021e010a00ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c9301ff0000000001000000",
+   "value": {
+    "id": 4294967296,
+    "one": {
+     "id": 4294967296,
+     "label": "héllo wörld ✓"
+    },
+    "more": [
+     {
+      "id": 4294967296,
+      "label": "héllo wörld ✓"
+     },
+     {
+      "id": 4294967296,
+      "label": "héllo wörld ✓"
+     },
+     {
+      "id": 4294967296,
+      "label": "héllo wörld ✓"
+     }
+    ],
+    "vb": {
+     "version": 2,
+     "inner": {
+      "version": 0,
+      "id": 4294967296,
+      "label": null
+     },
+     "note": "héllo wörld ✓"
+    },
+    "tail": 4294967296
+   }
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 2,
+   "hex": "000400fdfd000002040002000100",
+   "value": {
+    "id": 0,
+    "one": {
+     "id": 253,
+     "label": null
+    },
+    "more": [],
+    "vb": {
+     "version": 2,
+     "inner": {
+      "version": 0,
+      "id": 1,
+      "label": null
+     },
+     "note": null
+    },
+    "tail": 0
+   }
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 3,
+   "hex": "ff00000000010000001c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c93031c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c931c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c931c01ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c93021e010a00ff00000000010000001168c3a96c6c6f2077c3b6726c6420e29c9301ff0000000001000000",
+   "value": {
+    "id": 4294967296,
+    "one": {
+     "id": 4294967296,
+     "label": "héllo wörld ✓"
+    },
+    "more": [
+     {
+      "id": 4294967296,
+      "label": "héllo wörld ✓"
+     },
+     {
+      "id": 4294967296,
+      "label": "héllo wörld ✓"
+     },
+     {
+      "id": 4294967296,
+      "label": "héllo wörld ✓"
+     }
+    ],
+    "vb": {
+     "version": 2,
+     "inner": {
+      "version": 0,
+      "id": 4294967296,
+      "label": null
+     },
+     "note": "héllo wörld ✓"
+    },
+    "tail": 4294967296
+   }
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 3,
+   "hex": "fc0400fdfd000002040002000100",
+   "value": {
+    "id": 252,
+    "one": {
+     "id": 253,
+     "label": null
+    },
+    "more": [],
+    "vb": {
+     "version": 2,
+     "inner": {
+      "version": 0,
+      "id": 1,
+      "label": null
+     },
+     "note": null
+    },
+    "tail": 0
+   }
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 3,
+   "hex": "fc0400fdfd000102000102040002000101fd0010",
+   "value": {
+    "id": 252,
+    "one": {
+     "id": 253,
+     "label": null
+    },
+    "more": [
+     {
+      "id": 1,
+      "label": null
+     }
+    ],
+    "vb": {
+     "version": 2,
+     "inner": {
+      "version": 0,
+      "id": 1,
+      "label": null
+     },
+     "note": null
+    },
+    "tail": 4096
+   }
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 3,
+   "hex": "01090002000102000300",
+   "error": true,
+   "note": "frame reaching past the buffer"
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 3,
+   "hex": "01000002000102000300",
+   "error": true,
+   "note": "frame shorter than the value inside"
+  },
+  {
+   "name": "@syn/frame-holder",
+   "version": 3,
+   "hex": "0102000200017f000300",
+   "error": true,
+   "note": "versioned body frame reaching past the buffer"
   }
  ],
- "skipped": 2
+ "skipped": 4
 }

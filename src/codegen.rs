@@ -940,12 +940,7 @@ impl Emitter<'_> {
             let inner = self.decode_ty(ty, cur, false);
             return format!(
                 "{{ let len = r.uint()? as usize; \
-                 let start = r.position(); \
-                 let value = {inner}; \
-                 let used = r.position() - start; \
-                 if used > len {{ return Err(Error::OutOfBounds); }} \
-                 r.fixed_bytes(len - used)?; \
-                 value }}"
+                 r.sub(len, |r| Ok({inner}))? }}"
             );
         }
 
@@ -1268,13 +1263,7 @@ impl Emitter<'_> {
             if framed {
                 self.line(
                     5,
-                    &format!(
-                        "let len = r.uint()? as usize; let start = r.position(); \
-                         let value = {decode}; \
-                         let used = r.position() - start; \
-                         if used > len {{ return Err(Error::OutOfBounds); }} \
-                         r.fixed_bytes(len - used)?; value"
-                    ),
+                    &format!("let len = r.uint()? as usize; r.sub(len, |r| Ok({decode}))?"),
                 );
             } else {
                 self.line(5, &decode);

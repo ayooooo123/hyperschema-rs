@@ -87,8 +87,10 @@ function loadCodec(name, schema) {
     const root = path.dirname(require.resolve(entry.package))
     return require(path.join(root, entry.file))
   }
-  const code = new Hyperschema(schema).toCode({ filename: path.join(__dirname, '.generated.js') })
-  const file = path.join(__dirname, '.generated.js')
+  // One file per schema: `require` caches by path, so a shared name would hand
+  // the second generated schema the first one's codec.
+  const file = path.join(__dirname, `.generated-${name}.js`)
+  const code = new Hyperschema(schema).toCode({ filename: file })
   fs.writeFileSync(file, code)
   return require(file)
 }
@@ -202,16 +204,119 @@ function main() {
       }
     }
 
+    // Frames written by an older codec are still readable, so they are recorded
+    // next to the current encodings.
+    if (name === 'hyperbee2') cases.push(...legacyBlockFrames(codec, types))
+    if (name === 'synthetic') cases.push(...frameErrors(codec, schema.version))
+
     const out = {
       source: entry.source,
       version: schema.version,
-      cases: cases.map((c) => ({ name: c.name, version: c.version, hex: c.hex, value: c.value })),
+      cases: cases.map((c) => ({
+        name: c.name,
+        version: c.version,
+        hex: c.hex,
+        value: c.value,
+        decodeVersion: c.decodeVersion,
+        reencode: c.reencode,
+        error: c.error,
+        note: c.note
+      })),
       skipped
     }
     const file = path.join(ROOT, name + '.json')
     fs.writeFileSync(file, JSON.stringify(out, null, 1) + '\n')
     console.log(name, cases.length, 'cases,', skipped, 'skipped')
   }
+}
+
+// hyperbee2 schema version 1 had no `metadata.mappings`, so its metadata frame
+// carries no flags word. Those blocks are still on disk, so the current codec
+// has to read them like JS does: inside the frame.
+function legacyBlockFrames(codec, types) {
+  const schema = JSON.parse(
+    fs.readFileSync(path.join(SCHEMA_DIR, 'hyperbee2', 'schema.json'), 'utf8')
+  )
+  const legacy = JSON.parse(JSON.stringify(schema))
+  legacy.version = 1
+  for (const t of legacy.schema) {
+    if (t.namespace === 'bee' && t.name === 'metadata') {
+      t.fields = t.fields.filter((f) => (f.version || 1) <= 1)
+      t.flagsPosition = -1
+    }
+  }
+  const file = path.join(__dirname, '.legacy-hyperbee2.js')
+  fs.writeFileSync(file, new Hyperschema(legacy).toCode({ filename: file }))
+  const old = require(file)
+  fs.unlinkSync(file)
+
+  const value = {
+    type: 1,
+    seq: 0,
+    checkpoint: 5,
+    batch: { start: 3, end: 9 },
+    previous: null,
+    metadata: { cores: [{ key: Buffer.alloc(32, 0x44), fork: 0, length: 7, treeHash: null }] },
+    // A field after the metadata frame: its first byte must not be read as the
+    // frame's flags word.
+    tree: [{ keys: [], children: [] }],
+    keys: null,
+    values: null,
+    cohorts: null,
+    t: null,
+    invalidation: null
+  }
+  const hex = old.encode('@bee/block-1', value, 1).toString('hex')
+  const decoded = codec.decode('@bee/block-1', Buffer.from(hex, 'hex'), 2)
+  return [
+    {
+      name: '@bee/block-1',
+      version: 1,
+      decodeVersion: 2,
+      hex,
+      reencode: codec.encode('@bee/block-1', decoded, 1).toString('hex'),
+      value: jsonSafe(toFixture('@bee/block-1', decoded, types)),
+      note: 'schema v1 metadata frame without a flags word, decoded at version 2'
+    }
+  ]
+}
+
+// A frame length is a promise. One that reaches past the buffer, or one shorter
+// than the value inside, must fail instead of reading the next field.
+function frameErrors(codec, version) {
+  const value = {
+    id: 1,
+    one: { id: 2, label: null },
+    more: [],
+    vb: { version: 1, id: 3, label: null },
+    tail: null
+  }
+  // id | one(len=2, inner) | more | vb(version=1, len=2, inner) | flags
+  const valid = '01' + '02' + '0002' + '00' + '01' + '02' + '0003' + '00'
+  const hex = codec.encode('@syn/frame-holder', value, version).toString('hex')
+  if (hex !== valid) throw new Error(`unexpected @syn/frame-holder layout: ${hex}`)
+
+  const cases = [
+    ['frame reaching past the buffer', '01' + '09' + '0002' + '00' + '01' + '02' + '0003' + '00'],
+    ['frame shorter than the value inside', '01' + '00' + '0002' + '00' + '01' + '02' + '0003' + '00'],
+    ['versioned body frame reaching past the buffer', '01' + '02' + '0002' + '00' + '01' + '7f' + '0003' + '00']
+  ]
+  for (const [note, bytes] of cases) {
+    let threw = false
+    try {
+      codec.decode('@syn/frame-holder', Buffer.from(bytes, 'hex'), version)
+    } catch {
+      threw = true
+    }
+    if (!threw) throw new Error(`the reference accepts a broken frame: ${note}`)
+  }
+  return cases.map(([note, bytes]) => ({
+    name: '@syn/frame-holder',
+    version,
+    hex: bytes,
+    error: true,
+    note
+  }))
 }
 
 // Types used as a versioned payload get their version byte from the wrapper, so

@@ -103,6 +103,15 @@ struct Case {
     version: u64,
     hex: String,
     value: Value,
+    /// The schema version to decode with, when it differs from the one the
+    /// bytes were written with (an older writer read by a newer codec).
+    decode_version: Option<u64>,
+    /// The bytes the value re-encodes to, when that differs from `hex`
+    /// (a frame the current codec writes differently).
+    reencode: Option<String>,
+    /// The bytes must fail to decode.
+    error: bool,
+    note: Option<String>,
 }
 
 impl Cases {
@@ -117,6 +126,10 @@ impl Cases {
                 version: c["version"].as_u64().unwrap_or(1),
                 hex: c["hex"].as_str().unwrap_or_default().to_string(),
                 value: c["value"].clone(),
+                decode_version: c["decodeVersion"].as_u64(),
+                reencode: c["reencode"].as_str().map(str::to_string),
+                error: c["error"].as_bool().unwrap_or(false),
+                note: c["note"].as_str().map(str::to_string),
             })
             .collect();
         Ok(Self { cases })
@@ -135,24 +148,46 @@ fn emit_cases(m: &Model, schema: &str, cases: &Cases) -> Result<String> {
         let idx = type_index(&ty).ok_or_else(|| {
             error::Error::Schema(format!("`{}` has no generated type", case.name))
         })?;
-        let mut lit = String::new();
-        value_literal(m, &module, &ty, &case.value, &mut lit)?;
-        let label = format!("{} v{}", case.name, case.version);
+        let label = match &case.note {
+            Some(note) => format!("{} v{} ({note})", case.name, case.version),
+            None => format!("{} v{}", case.name, case.version),
+        };
         let hex = hex_literal(&case.hex);
         let versioned = matches!(ty, Ty::Struct(_) | Ty::Versioned(_));
-        let check = if versioned {
+        let mut decl = String::new();
+        let check = if case.error {
+            // A broken frame must be an error, not a panic or a wrong value.
             impls.insert(idx);
-            format!("crate::check(&expected, {}, {hex});", case.version)
+            format!(
+                "crate::check_invalid::<{}>({hex}, {});",
+                path(m, &module, idx),
+                case.version
+            )
         } else {
-            format!("crate::check_codec(&expected, {hex});")
+            let mut value = String::new();
+            value_literal(m, &module, &ty, &case.value, &mut value)?;
+            decl = format!("let expected = {value};\n{IND}{IND}{IND}{IND}");
+            if versioned {
+                impls.insert(idx);
+                let decode = case.decode_version.unwrap_or(case.version);
+                let reencode = match &case.reencode {
+                    Some(hex) => hex_literal(hex),
+                    None => hex.clone(),
+                };
+                format!(
+                    "crate::check(&expected, {}, {decode}, {hex}, {reencode});",
+                    case.version
+                )
+            } else {
+                format!("crate::check_codec(&expected, {hex});")
+            }
         };
         let _ = writeln!(
             cases_body,
             "{IND}{IND}Case {{\n\
              {IND}{IND}{IND}name: {label:?},\n\
              {IND}{IND}{IND}run: Box::new(|| {{\n\
-             {IND}{IND}{IND}{IND}let expected = {lit};\n\
-             {IND}{IND}{IND}{IND}{check}\n\
+             {IND}{IND}{IND}{IND}{decl}{check}\n\
              {IND}{IND}{IND}}}),\n\
              {IND}{IND}}},"
         );
