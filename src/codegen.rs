@@ -883,7 +883,7 @@ impl Emitter<'_> {
             Ty::Array(i) => {
                 let a = self.m.as_array(*i);
                 let head = if a.newtype {
-                    format!("&{expr}.0")
+                    format!("&{}.0", at(expr))
                 } else {
                     expr.to_string()
                 };
@@ -891,7 +891,7 @@ impl Emitter<'_> {
             }
             Ty::Record(i) => {
                 let r = self.m.as_record(*i);
-                let head = at(&format!("&{expr}.0")).to_string();
+                let head = format!("{}.0", at(expr));
                 self.line(ind, &format!("w.uint({head}.len() as u64);"));
                 self.line(ind, &format!("for (k, v) in {head}.iter() {{"));
                 self.encode_ty(&r.key, cur, "k", ind + 1, false);
@@ -912,7 +912,7 @@ impl Emitter<'_> {
             Ty::Array(i) => {
                 let a = self.m.as_array(*i);
                 let head = if a.newtype {
-                    format!("&{expr}.0")
+                    format!("&{}.0", at(expr))
                 } else {
                     expr.to_string()
                 };
@@ -922,7 +922,7 @@ impl Emitter<'_> {
                 let r = self.m.as_record(*i);
                 let key = self.len_ty(&r.key, cur, "k", false);
                 let value = self.len_ty(&r.value, cur, "v", false);
-                let head = at(&format!("&{expr}.0")).to_string();
+                let head = format!("{}.0", at(expr));
                 format!(
                     "uint_len({head}.len() as u64) + {head}.iter().map(|(k, v)| {key} + {value}).sum::<usize>()"
                 )

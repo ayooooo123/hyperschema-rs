@@ -148,7 +148,7 @@ bytes.
 | protomux-wakeup | protomux-wakeup 2.9.0, schema reconstructed from the shipped `index.js` | 15 | 0 |
 | hypercore-storage | hypercore-storage 3.4.0 | 80 | 3 |
 | hyperdht-address | hyperdht-address 1.1.1 | 5 | 0 |
-| synthetic | exercises features the shipped schemas do not use | 142 | 4 |
+| synthetic | exercises features the shipped schemas do not use | 156 | 4 |
 
 Skipped cases are versioned payloads the reference cannot encode (decode-only
 `legacy.js` types), payloads whose JS decode applies a `map`, and types that are
@@ -170,8 +170,9 @@ The synthetic schema covers what the real ones miss: every primitive, all
 `uint1`-`uint7` bitwise widths, framed and unframed versioned types, versioned
 fields, inline structs nested two deep, recursion, records, bool bitfields,
 framed arrays of non-compact structs, framed structs whose last field is
-optional, nested framed versioned bodies, aliases, constants and
-`flagsPosition` before a required field.
+optional, nested framed versioned bodies, struct fields of array and record type
+(required and optional, nested), aliases, constants and `flagsPosition` before a
+required field.
 
 ## Layout
 

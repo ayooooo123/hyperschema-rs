@@ -805,6 +805,71 @@
           "version": 1
         }
       ]
+    },
+    {
+      "name": "bag",
+      "namespace": "syn",
+      "compact": false,
+      "flagsPosition": 3,
+      "fields": [
+        {
+          "name": "items",
+          "required": true,
+          "type": "@syn/children",
+          "version": 1
+        },
+        {
+          "name": "flags",
+          "required": true,
+          "type": "@syn/flags-list",
+          "version": 1
+        },
+        {
+          "name": "table",
+          "required": true,
+          "type": "@syn/pairs",
+          "version": 1
+        },
+        {
+          "name": "more",
+          "type": "@syn/nested-list",
+          "version": 1
+        },
+        {
+          "name": "extra",
+          "type": "@syn/pairs",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "bag-holder",
+      "namespace": "syn",
+      "compact": false,
+      "flagsPosition": 0,
+      "fields": [
+        {
+          "name": "main",
+          "required": true,
+          "type": "@syn/bag",
+          "version": 1
+        },
+        {
+          "name": "other",
+          "type": "@syn/bag",
+          "version": 1
+        },
+        {
+          "name": "tables",
+          "type": "@syn/pairs",
+          "version": 1
+        },
+        {
+          "name": "lists",
+          "type": "@syn/children",
+          "version": 1
+        }
+      ]
     }
   ]
 }
