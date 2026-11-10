@@ -118,13 +118,8 @@ fn every_fixture_case_round_trips() {
 /// encode the value again. `decode_version` differs from `version` when the
 /// bytes were written by another schema version, and `reencode` differs from
 /// `hex` when today's codec writes the value differently.
-pub fn check<T>(
-    expected: &T,
-    version: u64,
-    decode_version: u64,
-    hex: Vec<u8>,
-    reencode: Vec<u8>,
-) where
+pub fn check<T>(expected: &T, version: u64, decode_version: u64, hex: Vec<u8>, reencode: Vec<u8>)
+where
     T: VersionedValue + Codec + PartialEq + std::fmt::Debug,
 {
     assert_eq!(
