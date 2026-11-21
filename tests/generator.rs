@@ -149,7 +149,7 @@ fn versioned_types_frame_and_cover_version_ranges() {
     assert!(code.contains("0..=1 => Ok(Self::V1({") || code.contains("0 | 1 => Ok(Self::V1({"));
     assert!(code.contains("2..=4 => Ok(Self::V4({"));
     assert!(code.contains("let n = v.encoded_len_version(version);"));
-    assert!(code.contains("let len = r.uint()? as usize;"));
+    assert!(code.contains("r.frame_with(|r| Ok(A::decode_version(r, version)?))?"));
     assert!(code.contains("unsupported @n/boxed version"));
 }
 
@@ -163,7 +163,7 @@ fn unframed_versioned_types_skip_the_length_window() {
             {"type":"@n/a","map":null,"version":1}
         ]}"#,
     );
-    assert!(!code.contains("let len = r.uint()? as usize;"), "{code}");
+    assert!(!code.contains("r.frame_with"), "{code}");
     assert!(code.contains("uint_len(self.version()) + inner"));
 }
 
@@ -224,8 +224,7 @@ fn arrays_of_compact_structs_stay_vecs_and_framed_ones_become_newtypes() {
     assert!(code.contains("pub type Smalls = Vec<Small>;"), "{code}");
     assert!(code.contains("pub struct Wides(pub Vec<Wide>);"));
     assert!(code.contains("pub struct Bits(pub Vec<bool>);"));
-    assert!(code.contains("w.bitarray("));
-    assert!(code.contains("let len = r.uint()? as usize;"));
+    assert!(code.contains("r.frame_with"), "{code}");
 }
 
 #[test]
@@ -342,4 +341,31 @@ fn a_type_named_like_the_prelude_is_renamed() {
     );
     assert!(code.contains("pub struct Writer_ {"), "{code}");
     assert!(code.contains("impl Codec for Writer_"));
+}
+
+#[test]
+fn late_bool_and_inline_child_without_flags_generate_valid_code() {
+    let code = generate_schema(
+        r#"{"name":"child","namespace":"n","compact":true,"fields":[
+            {"name":"value","required":true,"type":"uint","version":1}]},
+        {"name":"parent","namespace":"n","compact":true,"fields":[
+            {"name":"optional","type":"uint","version":1},
+            {"name":"child","required":true,"inline":true,"type":"@n/child","version":1}]},
+        {"name":"late","namespace":"n","compact":true,"fields":[
+            {"name":"enabled","type":"bool","version":2}]}"#,
+    );
+    assert!(!code.contains("child.flags_version"), "{code}");
+    assert!(code.contains("else { false }"), "{code}");
+}
+
+#[test]
+fn framed_versioned_compact_def_has_no_frame() {
+    let code = generate_schema(
+        r#"{"name":"compact","namespace":"n","compact":true,"fields":[
+            {"name":"value","required":true,"type":"uint","version":1}]},
+        {"name":"versioned","namespace":"n","framed":true,"versions":[
+            {"type":"@n/compact","map":null,"version":1}]}"#,
+    );
+    assert!(!code.contains("w.uint(n as u64);"), "{code}");
+    assert!(!code.contains("r.frame_with"), "{code}");
 }

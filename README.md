@@ -117,20 +117,16 @@ Also rejected:
   `null` (string enums); the Rust enum cannot hold a value outside its variants,
   so `from_value` returns `Error::Invalid`.
 - **Optional fields are `Option<T>`.** JS decides presence by truthiness, so
-  `Some(0)`, `Some("")` and `Some(Bytes::new())` are written with the flag set
-  where JS would omit zero/empty values; decoding JS data is unaffected.
-- **An optional `optionalBuffer` field is a single `Option<Bytes>`.** JS can
-  distinguish "absent", "flag set, null" and "flag set, bytes"; the collapsed Rust
-  type cannot, and a flag-set zero length decodes as `Some(Bytes::new())` where JS
-  gives `null`.
+  `Some(0)`, `Some("")` and `Some(false)` are written with the flag set where JS
+  would omit zero/empty values; empty buffers are truthy in both implementations.
+- **An optional `optionalBuffer` field is a single `Option<Bytes>`.** A flag-set
+  zero length decodes as `None`, the same as JS `null`.
 - **Records are ordered `Vec<(K, V)>`.** JS records are plain objects, so duplicate
   keys collapse and keys have to be strings there; the Rust side keeps wire order
   and duplicates.
-- **Legacy `system-writer` versions 0–3 need a `Reader` rewind.** autobee's
+- **Legacy `system-writer` versions 0–3 use `Reader::unread`.** autobee's
   `SystemWriterV0.decode` rewinds the version byte (`state.start--`) so that it
-  doubles as the flags word; `compact_encoding::Reader` has no rewind, so a Rust
-  external codec cannot reproduce it. The version prefix handling in the generated
-  wrapper is correct; only that rewind-dependent legacy layout is out of reach.
+  doubles as the flags word; `compact_encoding::Reader::unread` reproduces this.
 
 ## Fixtures
 

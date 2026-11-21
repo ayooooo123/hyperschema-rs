@@ -360,7 +360,14 @@ impl Emitter<'_> {
                     };
                     self.line(ind, &format!("flags |= {value};"));
                 }
-                FlagKind::None if f.inline => {
+                FlagKind::None
+                    if f.inline
+                        && self
+                            .m
+                            .as_struct(f.child.expect("validated inline target"))
+                            .flags_bits
+                            > 0 =>
+                {
                     let shift = if f.child_offset == 0 {
                         String::new()
                     } else {
@@ -381,6 +388,13 @@ impl Emitter<'_> {
                             ind + 1,
                             &format!("flags |= v.flags_version(version){shift};"),
                         );
+                        self.line(ind, "}");
+                    }
+                }
+                FlagKind::None if f.inline => {
+                    if !f.required {
+                        self.line(ind, &format!("if self.{}.is_some() {{", f.rust_name));
+                        self.line(ind + 1, &format!("flags |= 1u64 << {};", f.flag_bit));
                         self.line(ind, "}");
                     }
                 }
@@ -652,7 +666,15 @@ impl Emitter<'_> {
                 FlagKind::None => unreachable!(),
             };
             return if f.version > 1 {
-                format!("if version >= {} {{ {expr} }} else {{ 0 }}", f.version)
+                let absent = if matches!(f.flag_kind, FlagKind::Bool) {
+                    "false"
+                } else {
+                    "0"
+                };
+                format!(
+                    "if version >= {} {{ {expr} }} else {{ {absent} }}",
+                    f.version
+                )
             } else {
                 expr
             };
@@ -846,7 +868,7 @@ impl Emitter<'_> {
         format!(
             "{{ let n = r.uint()?; \
              if n > MAX_ARRAY_DECODE {{ return Err(Error::ArrayTooBig(n)); }} \
-             let mut items = Vec::with_capacity((n as usize).min(r.remaining())); \
+             let mut items = Vec::new(); \
              for _ in 0..n {{ items.push({item}); }} \
              items }}"
         )
@@ -938,10 +960,7 @@ impl Emitter<'_> {
     fn decode_ty(&self, ty: &Ty, cur: usize, framed: bool) -> String {
         if framed {
             let inner = self.decode_ty(ty, cur, false);
-            return format!(
-                "{{ let len = r.uint()? as usize; \
-                 r.sub(len, |r| Ok({inner}))? }}"
-            );
+            return format!("r.frame_with(|r| Ok({inner}))?");
         }
 
         match ty {
@@ -974,7 +993,7 @@ impl Emitter<'_> {
                 let items = format!(
                     "{{ let n = r.uint()?; \
                      if n > MAX_ARRAY_DECODE {{ return Err(Error::ArrayTooBig(n)); }} \
-                     let mut items = Vec::with_capacity((n as usize).min(r.remaining())); \
+                     let mut items = Vec::new(); \
                      for _ in 0..n {{ let k = {key}; let v = {value}; items.push((k, v)); }} \
                      items }}"
                 );
@@ -1134,10 +1153,9 @@ impl Emitter<'_> {
         let name = self.m.types[idx].rust_name.clone();
         let fqn = self.m.types[idx].fqn.clone();
         let cur = self.m.types[idx].ns;
-        let framed = v.framed;
         // Only structs and other versioned types carry `*_version` methods; the
         // rest (externals, enums, arrays, records) are plain codecs.
-        let defs: Vec<(u64, String, Option<String>, bool)> = v
+        let defs: Vec<(u64, String, Option<String>, bool, bool)> = v
             .defs
             .iter()
             .map(|d| {
@@ -1146,6 +1164,7 @@ impl Emitter<'_> {
                     self.ty_str(&d.ty, cur),
                     d.map.clone(),
                     matches!(d.ty, Ty::Struct(_) | Ty::Versioned(_)),
+                    v.framed && self.m.frameable(&d.ty),
                 )
             })
             .collect();
@@ -1153,7 +1172,7 @@ impl Emitter<'_> {
         self.line(1, &format!("/// `{fqn}`"));
         self.line(1, "#[derive(Debug, Clone, PartialEq)]");
         self.line(1, &format!("pub enum {name} {{"));
-        for (version, ty, map, _) in &defs {
+        for (version, ty, map, _, _) in &defs {
             match map {
                 Some(map) => self.line(
                     2,
@@ -1169,7 +1188,7 @@ impl Emitter<'_> {
         self.line(2, "/// The wire version this value writes.");
         self.line(2, "pub fn version(&self) -> u64 {");
         self.line(3, "match self {");
-        for (version, _, _, _) in &defs {
+        for (version, _, _, _, _) in &defs {
             self.line(4, &format!("Self::V{version}(_) => {version},"));
         }
         self.line(3, "}");
@@ -1185,7 +1204,7 @@ impl Emitter<'_> {
             "pub fn encoded_len_version(&self, version: u64) -> usize {",
         );
         self.line(3, "let inner = match self {");
-        for (version, _, _, version_aware) in &defs {
+        for (version, _, _, version_aware, _) in &defs {
             let call = if *version_aware {
                 "v.encoded_len_version(version)"
             } else {
@@ -1194,11 +1213,17 @@ impl Emitter<'_> {
             self.line(4, &format!("Self::V{version}(v) => {call},"));
         }
         self.line(3, "};");
-        if framed {
-            self.line(
-                3,
-                "uint_len(self.version()) + uint_len(inner as u64) + inner",
-            );
+        if defs.iter().any(|(_, _, _, _, frame)| *frame) {
+            self.line(3, "match self {");
+            for (version, _, _, _, frame) in &defs {
+                let len = if *frame {
+                    "uint_len(self.version()) + uint_len(inner as u64) + inner"
+                } else {
+                    "uint_len(self.version()) + inner"
+                };
+                self.line(4, &format!("Self::V{version}(_) => {len},"));
+            }
+            self.line(3, "}");
         } else {
             self.line(3, "uint_len(self.version()) + inner");
         }
@@ -1215,14 +1240,14 @@ impl Emitter<'_> {
         );
         self.line(3, "w.uint(self.version());");
         self.line(3, "match self {");
-        for (version, _, _, version_aware) in &defs {
+        for (version, _, _, version_aware, frame) in &defs {
             let call = if *version_aware {
                 "v.encode_version(version, w);"
             } else {
                 "Codec::encode(v, w);"
             };
             self.line(4, &format!("Self::V{version}(v) => {{"));
-            if framed {
+            if *frame {
                 let len = if *version_aware {
                     "v.encoded_len_version(version)"
                 } else {
@@ -1248,7 +1273,7 @@ impl Emitter<'_> {
         );
         self.line(3, "match r.uint()? {");
         let mut start = 0u64;
-        for (def_version, ty, _, version_aware) in &defs {
+        for (def_version, ty, _, version_aware, frame) in &defs {
             let arm = if start == *def_version {
                 format!("{def_version}")
             } else {
@@ -1260,11 +1285,8 @@ impl Emitter<'_> {
             } else {
                 format!("{ty}::decode(r)?")
             };
-            if framed {
-                self.line(
-                    5,
-                    &format!("let len = r.uint()? as usize; r.sub(len, |r| Ok({decode}))?"),
-                );
+            if *frame {
+                self.line(5, &format!("r.frame_with(|r| Ok({decode}))?"));
             } else {
                 self.line(5, &decode);
             }
@@ -1358,16 +1380,16 @@ fn prim_encode(p: Prim, e: &str) -> Option<String> {
             format!("w.uint24((((({v}) as i64) << 1) ^ ((({v}) as i64) >> 23)) as u32);")
         }
         Prim::Int32 => format!("w.int32({v});"),
-        Prim::Int40 => format!("w.uint40(((({v}) << 1) ^ (({v}) >> 39)) as u64);"),
-        Prim::Int48 => format!("w.uint48(((({v}) << 1) ^ (({v}) >> 47)) as u64);"),
-        Prim::Int56 => format!("w.uint56(((({v}) << 1) ^ (({v}) >> 55)) as u64);"),
+        Prim::Int40 => format!("w.int40({v});"),
+        Prim::Int48 => format!("w.int48({v});"),
+        Prim::Int56 => format!("w.int56({v});"),
         Prim::Int64 => format!("w.int64({v});"),
         Prim::Float32 => format!("w.float32({v});"),
         Prim::Float64 => format!("w.float64({v});"),
         Prim::Port => format!("w.uint16({v});"),
         Prim::String => format!("w.string({e});"),
-        Prim::BigUint64 => format!("w.uint64({v});"),
-        Prim::BigInt64 => format!("w.int64({v});"),
+        Prim::BigUint64 => format!("w.biguint64({v});"),
+        Prim::BigInt64 => format!("w.bigint64({v});"),
         Prim::Bool => format!("w.bool({v});"),
         Prim::Buffer => format!("w.buffer({}.as_ref());", at(e)),
         Prim::OptionalBuffer => format!("w.optional_buffer({}.as_deref());", at(e)),
@@ -1433,18 +1455,18 @@ fn prim_decode(p: Prim) -> String {
         Prim::Int => "r.int()?".to_string(),
         Prim::Int8 => "r.int8()?".to_string(),
         Prim::Int16 => "r.int16()?".to_string(),
-        Prim::Int24 => "{ let n = r.uint24()? as i64; ((n >> 1) ^ -(n & 1)) as i32 }".to_string(),
+        Prim::Int24 => "r.int24()?".to_string(),
         Prim::Int32 => "r.int32()?".to_string(),
-        Prim::Int40 => "{ let n = r.uint40()?; ((n >> 1) as i64) ^ -((n & 1) as i64) }".to_string(),
-        Prim::Int48 => "{ let n = r.uint48()?; ((n >> 1) as i64) ^ -((n & 1) as i64) }".to_string(),
-        Prim::Int56 => "{ let n = r.uint56()?; ((n >> 1) as i64) ^ -((n & 1) as i64) }".to_string(),
+        Prim::Int40 => "r.int40()?".to_string(),
+        Prim::Int48 => "r.int48()?".to_string(),
+        Prim::Int56 => "r.int56()?".to_string(),
         Prim::Int64 => "r.int64()?".to_string(),
         Prim::Float32 => "r.float32()?".to_string(),
         Prim::Float64 => "r.float64()?".to_string(),
         Prim::Port => "r.uint16()?".to_string(),
         Prim::String => "r.string()?".to_string(),
-        Prim::BigUint64 => "r.uint64()?".to_string(),
-        Prim::BigInt64 => "r.int64()?".to_string(),
+        Prim::BigUint64 => "r.biguint64()?".to_string(),
+        Prim::BigInt64 => "r.bigint64()?".to_string(),
         Prim::Bool => "r.bool()?".to_string(),
         Prim::Buffer => "r.buffer()?".to_string(),
         Prim::OptionalBuffer => "r.optional_buffer()?".to_string(),
@@ -1465,7 +1487,7 @@ fn prim_decode(p: Prim) -> String {
     }
 }
 
-fn constant_literal(value: &serde_json::Value) -> String {
+pub(crate) fn constant_literal(value: &serde_json::Value) -> String {
     if value.is_null() {
         return "None".to_string();
     }

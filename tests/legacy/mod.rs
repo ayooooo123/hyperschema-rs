@@ -58,14 +58,12 @@ impl Codec for SystemWriterV0 {
         decode_only()
     }
 
-    fn decode(_: &mut Reader) -> Result<Self> {
-        // `legacy.js` does `state.start--` here to re-read the version byte as
-        // the flags word; Reader has no rewind, so versions 0-3 cannot be
-        // decoded through the generated wrapper.
-        Err(compact_encoding::Error::Invalid(
-            "legacy system writers need a one byte rewind",
-            0,
-        ))
+    fn decode(r: &mut Reader) -> Result<Self> {
+        r.unread(1)?;
+        Ok(Self {
+            flags: r.uint()?,
+            length: r.uint()?,
+        })
     }
 }
 
@@ -123,7 +121,7 @@ impl Codec for Checkpointer {
 
 fn decode_array<T: Codec>(r: &mut Reader) -> Result<Vec<T>> {
     let n = r.uint()?;
-    let mut out = Vec::with_capacity((n as usize).min(r.remaining()));
+    let mut out = Vec::new();
     for _ in 0..n {
         out.push(T::decode(r)?);
     }

@@ -870,6 +870,50 @@
           "version": 1
         }
       ]
+    },
+    {
+      "name": "late-bool",
+      "namespace": "syn",
+      "compact": true,
+      "fields": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "version": 2
+        }
+      ]
+    },
+    {
+      "name": "no-flags-child",
+      "namespace": "syn",
+      "compact": true,
+      "fields": [
+        {
+          "name": "value",
+          "required": true,
+          "type": "uint",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "name": "no-flags-parent",
+      "namespace": "syn",
+      "compact": true,
+      "fields": [
+        {
+          "name": "optional",
+          "type": "uint",
+          "version": 1
+        },
+        {
+          "name": "child",
+          "required": true,
+          "inline": true,
+          "type": "@syn/no-flags-child",
+          "version": 1
+        }
+      ]
     }
   ]
 }

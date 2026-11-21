@@ -10,14 +10,19 @@ mod model;
 #[path = "src/naming.rs"]
 mod naming;
 
+#[cfg(feature = "golden")]
 use std::collections::BTreeSet;
+#[cfg(feature = "golden")]
 use std::fmt::Write as _;
+#[cfg(feature = "golden")]
 use std::net::{IpAddr, Ipv4Addr, Ipv6Addr};
 use std::path::{Path, PathBuf};
 
 use codegen::Options;
 use error::Result;
+#[cfg(feature = "golden")]
 use model::{Kind, Model, Prim, Ty};
+#[cfg(feature = "golden")]
 use serde_json::Value;
 
 /// The five modules PearTube ships plus one schema that exercises features the
@@ -39,7 +44,6 @@ const AUTOBEE_EXTERNALS: &[(&str, &str)] = &[
 ];
 
 fn main() {
-    println!("cargo:rerun-if-changed=fixtures");
     let root = PathBuf::from(std::env::var("CARGO_MANIFEST_DIR").unwrap());
 
     for name in SCHEMAS {
@@ -49,6 +53,7 @@ fn main() {
     }
 }
 
+#[cfg(feature = "golden")]
 fn schema_module(name: &str) -> String {
     format!("{}_spec", name.replace('-', "_"))
 }
@@ -77,6 +82,13 @@ fn generate(name: &str, root: &Path) -> Result<()> {
         codegen::generate(&m, &opts)?,
     )?;
 
+    #[cfg(feature = "golden")]
+    generate_cases(&m, name, root, &out_dir)?;
+    Ok(())
+}
+
+#[cfg(feature = "golden")]
+fn generate_cases(m: &Model, name: &str, root: &Path, out_dir: &Path) -> Result<()> {
     let cases_path = root.join("fixtures").join(format!("{name}.json"));
     if !cases_path.exists() {
         return Ok(());
@@ -86,7 +98,7 @@ fn generate(name: &str, root: &Path) -> Result<()> {
     let cases = Cases::parse(&cases)?;
     std::fs::write(
         out_dir.join(format!("cases_{name}.rs")),
-        emit_cases(&m, name, &cases)?,
+        emit_cases(m, name, &cases)?,
     )?;
     Ok(())
 }
@@ -94,10 +106,12 @@ fn generate(name: &str, root: &Path) -> Result<()> {
 // ---------------------------------------------------------------------------
 // fixtures/<schema>.json
 
+#[cfg(feature = "golden")]
 struct Cases {
     cases: Vec<Case>,
 }
 
+#[cfg(feature = "golden")]
 struct Case {
     name: String,
     version: u64,
@@ -114,6 +128,7 @@ struct Case {
     note: Option<String>,
 }
 
+#[cfg(feature = "golden")]
 impl Cases {
     fn parse(text: &str) -> Result<Self> {
         let json: Value = serde_json::from_str(text)?;
@@ -136,6 +151,7 @@ impl Cases {
     }
 }
 
+#[cfg(feature = "golden")]
 fn emit_cases(m: &Model, schema: &str, cases: &Cases) -> Result<String> {
     let module = schema_module(schema);
     let mut cases_body = String::new();
@@ -248,6 +264,7 @@ fn emit_cases(m: &Model, schema: &str, cases: &Cases) -> Result<String> {
     Ok(out)
 }
 
+#[cfg(feature = "golden")]
 fn type_index(ty: &Ty) -> Option<usize> {
     match ty {
         Ty::Struct(i)
@@ -262,10 +279,12 @@ fn type_index(ty: &Ty) -> Option<usize> {
 
 const IND: &str = "    ";
 
+#[cfg(feature = "golden")]
 fn hex_literal(hex: &str) -> String {
     format!("crate::hex({hex:?})")
 }
 
+#[cfg(feature = "golden")]
 fn find(m: &Model, fqn: &str) -> Option<Ty> {
     m.types
         .iter()
@@ -273,6 +292,7 @@ fn find(m: &Model, fqn: &str) -> Option<Ty> {
         .map(|i| named_ty(m, i))
 }
 
+#[cfg(feature = "golden")]
 fn named_ty(m: &Model, index: usize) -> Ty {
     match &m.types[index].kind {
         Kind::Struct(_) => Ty::Struct(index),
@@ -285,6 +305,7 @@ fn named_ty(m: &Model, index: usize) -> Ty {
     }
 }
 
+#[cfg(feature = "golden")]
 fn path(m: &Model, module: &str, index: usize) -> String {
     let t = &m.types[index];
     format!(
@@ -294,6 +315,7 @@ fn path(m: &Model, module: &str, index: usize) -> String {
 }
 
 /// Renders the fixture value as a Rust expression of the generated type.
+#[cfg(feature = "golden")]
 fn value_literal(m: &Model, module: &str, ty: &Ty, json: &Value, out: &mut String) -> Result<()> {
     match ty {
         Ty::Prim(p) => prim_literal(*p, json, out),
@@ -373,6 +395,7 @@ fn value_literal(m: &Model, module: &str, ty: &Ty, json: &Value, out: &mut Strin
     }
 }
 
+#[cfg(feature = "golden")]
 fn struct_literal(
     m: &Model,
     module: &str,
@@ -391,7 +414,7 @@ fn struct_literal(
     for f in &s.fields {
         let _ = write!(out, "{}: ", f.rust_name);
         if let Some(constant) = &f.constant {
-            out.push_str(&constant_literal(constant));
+            out.push_str(&codegen::constant_literal(constant));
             out.push_str(", ");
             continue;
         }
@@ -429,6 +452,7 @@ fn struct_literal(
 
 /// JS decodes a missing optional number as `0` and a missing optional enum as
 /// `0`, which the Rust side models as `None`.
+#[cfg(feature = "golden")]
 fn is_absent(ty: &Ty, value: &Value) -> bool {
     match value {
         Value::Null => true,
@@ -443,6 +467,7 @@ fn is_absent(ty: &Ty, value: &Value) -> bool {
 }
 
 /// Array fields hold a list of the field's type; the element type is `f.ty`.
+#[cfg(feature = "golden")]
 fn field_value(
     m: &Model,
     module: &str,
@@ -457,6 +482,7 @@ fn field_value(
     }
 }
 
+#[cfg(feature = "golden")]
 fn array_literal(m: &Model, module: &str, elem: &Ty, json: &Value, out: &mut String) -> Result<()> {
     let items = json
         .as_array()
@@ -470,6 +496,7 @@ fn array_literal(m: &Model, module: &str, elem: &Ty, json: &Value, out: &mut Str
     Ok(())
 }
 
+#[cfg(feature = "golden")]
 fn prim_literal(p: Prim, json: &Value, out: &mut String) -> Result<()> {
     match p {
         Prim::Bool => out.push_str(if json.as_bool() == Some(true) {
@@ -586,6 +613,7 @@ fn prim_literal(p: Prim, json: &Value, out: &mut String) -> Result<()> {
     Ok(())
 }
 
+#[cfg(feature = "golden")]
 fn ipv6_literal(ip: &Ipv6Addr) -> String {
     let s = &ip.segments();
     format!(
@@ -594,19 +622,7 @@ fn ipv6_literal(ip: &Ipv6Addr) -> String {
     )
 }
 
-fn constant_literal(value: &Value) -> String {
-    if value.is_null() {
-        return "None".to_string();
-    }
-    if let Some(b) = value.as_bool() {
-        return b.to_string();
-    }
-    if let Some(i) = value.as_i64() {
-        return i.to_string();
-    }
-    format!("{:?}.to_string()", value.as_str().unwrap_or_default())
-}
-
+#[cfg(feature = "golden")]
 fn byte_array(bytes: &[u8]) -> String {
     let mut out = String::from("[");
     for (i, b) in bytes.iter().enumerate() {
@@ -619,6 +635,7 @@ fn byte_array(bytes: &[u8]) -> String {
     out
 }
 
+#[cfg(feature = "golden")]
 fn byte_slice(bytes: &[u8]) -> String {
     let mut out = String::from("&[");
     for (i, b) in bytes.iter().enumerate() {
@@ -631,6 +648,7 @@ fn byte_slice(bytes: &[u8]) -> String {
     out
 }
 
+#[cfg(feature = "golden")]
 fn decode_hex(s: &str) -> Result<Vec<u8>> {
     if !s.len().is_multiple_of(2) {
         return Err(error::Error::Schema(format!("odd hex length: {s}")));

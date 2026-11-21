@@ -31,4 +31,4 @@ jobs:
       - run: for d in tests/js fixtures/gen; do [ -f $d/package.json ] && (cd $d && npm ci); done; true
       - run: cargo fmt --check
       - run: cargo clippy --all-targets -- -D warnings
-      - run: cargo test -- --include-ignored
+      - run: cargo test --features golden -- --include-ignored

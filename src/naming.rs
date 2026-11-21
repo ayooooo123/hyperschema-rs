@@ -45,6 +45,7 @@ pub fn camel_case(name: &str) -> String {
 /// Names the generated prelude imports, so a schema type that reads like one of
 /// them gets a trailing `_` instead of shadowing it.
 const RESERVED_TYPES: &[&str] = &[
+    "Box",
     "Bytes",
     "CReader",
     "CWriter",
@@ -55,10 +56,13 @@ const RESERVED_TYPES: &[&str] = &[
     "Ipv6Addr",
     "MAX_ARRAY_DECODE",
     "Reader",
+    "Option",
     "Result",
     "SocketAddr",
     "SocketAddrV4",
     "SocketAddrV6",
+    "String",
+    "Vec",
     "VERSION",
     "Writer",
 ];
